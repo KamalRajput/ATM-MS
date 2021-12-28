@@ -36,11 +36,17 @@ in case of failure (docker-compose down --rmi all) and run docker-compose -up --
 # Microservice Design
   Services created under the project are designed to be distributed and works independently.
   There are four services:
+  
     atm-aggregator-service 
-        : which has the rest end points exposed for /authenticate ,/checkBalance, and /withdraw. This service is the one which will be hit by restclient 
-     card-service : stores card related info
-     atminfo-service : stores atm related info like denomination and remaining balance in atm
-     account-service : used when checkBalance and withdraw endpoints will be called.
+  
+  		: which has the rest end points exposed for /authenticate ,/checkBalance, and /withdraw.
+		  This service is the one which will be hit by restclient 
+  
+  card-service : stores card related info
+  
+  atminfo-service : stores atm related info like denomination and remaining balance in atm
+  
+  account-service : used when checkBalance and withdraw endpoints will be called.
      
 # Ports exposed:
      atm-aggregator-service (9093)
@@ -49,7 +55,8 @@ in case of failure (docker-compose down --rmi all) and run docker-compose -up --
      atminfo-service (9092)
      
 ## mysql service can be connected on localhost:8080
-     ![image](https://user-images.githubusercontent.com/34761964/147593215-d0d244c9-2e65-4d43-9e33-a83fcdb2cf25.png)
+![image](https://user-images.githubusercontent.com/34761964/147593385-e7794a41-2644-4bab-8eac-0808a8cbef63.png)
+
 
 
       
