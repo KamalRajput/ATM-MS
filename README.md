@@ -49,7 +49,8 @@ in case of failure (docker-compose down --rmi all) and run docker-compose -up --
      atminfo-service (9092)
      
 ## mysql service can be connected on localhost:8080
-     ![image](https://user-images.githubusercontent.com/34761964/147591946-3a3da5c8-5726-400b-9d08-b94635b8fc1a.png)
+     ![image](https://user-images.githubusercontent.com/34761964/147593215-d0d244c9-2e65-4d43-9e33-a83fcdb2cf25.png)
+
 
       
 # Initial data setup
