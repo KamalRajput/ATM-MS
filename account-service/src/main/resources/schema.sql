@@ -1,0 +1,2 @@
+create table IF NOT EXISTS account (account_number integer not null, active_indicator bit, hashed_account_number varchar(255),
+opening_balance double precision not null, overdraft double precision not null, primary key (account_number));

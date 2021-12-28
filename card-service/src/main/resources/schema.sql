@@ -1,0 +1,2 @@
+create table IF NOT EXISTS card (card_id integer not null, active_indicator bit, card_holder_name varchar(255),
+card_number integer not null, cvv integer not null, expiry_date datetime, hashed_account_number varchar(255), pin integer not null, primary key (card_id));

@@ -1,0 +1,47 @@
+version: "3"
+services:
+  mysql-service:
+    image: mysql
+    ports:
+      - "3306:3306"
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./init.sql:/data/application/init.sql
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_PASSWORD: root
+        MYSQL_DATABASE: atmdb
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-service
+  account-service:
+    build: ../account-service
+    ports:
+      - "9091:9091"
+    depends_on:
+      - mysql-service
+  atm-info-service:
+    build: ../atm-info-service
+    ports:
+      - "9092:9092"
+    depends_on:
+      - mysql-service
+  card-service:
+    build: ../card-service
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mysql-service  
+  atm-aggregator-service:
+    build: ../atm-aggregator-service
+    ports:
+      - "9093:9093"
+    depends_on:
+      - account-service
+      - atm-info-service
+      - card-service
+  

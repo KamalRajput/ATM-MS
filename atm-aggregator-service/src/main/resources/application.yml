@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: atm-aggregator-service
+
+server:
+  port: 9093

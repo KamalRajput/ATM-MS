@@ -1,0 +1,18 @@
+spring:
+   application:
+      name: account-service
+   jpa:
+      show-sql: true
+      hibernate:
+         ddl-auto: none
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+   datasource:
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      url: jdbc:mysql://mysql-service:3306/atmdb
+   sql:
+      init:
+         mode: always
+server:
+   port: 9091
