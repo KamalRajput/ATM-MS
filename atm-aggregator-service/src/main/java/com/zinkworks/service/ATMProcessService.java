@@ -78,6 +78,9 @@ public class ATMProcessService {
 		int tensTobeUsed = 0;
 		int fivesTobeUsed = 0;
 
+		if(amount > atmBalance) {
+			throw new InsufficientDenominationException("Not sufficient funds to fulfill the request");
+		}
 		while (amount >= 0 && !(amount > atmBalance)) {
 			if((amount %5!=0) && (amount%10!=0) && (amount%20!=0) && (amount%50!=0)){
 				throw new InvalidDenominationException("Invalid Denomination Exception");
@@ -103,9 +106,7 @@ public class ATMProcessService {
 				break;
 			} 
 		}
-		if(amount > atmBalance) {
-			throw new InsufficientDenominationException("Not sufficient funds to fulfill the request");
-		}
+		
 		count.setFiftys(fiftiesTobeUsed);
 		count.setTwentys(twentiesTobeUsed);
 		count.setTens(tensTobeUsed);
