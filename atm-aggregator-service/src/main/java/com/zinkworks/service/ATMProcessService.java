@@ -19,7 +19,6 @@ import com.zinkworks.exception.InsufficientAccountBalanceException;
 import com.zinkworks.exception.InsufficientDenominationException;
 import com.zinkworks.exception.InvalidDenominationException;
 import com.zinkworks.externaldto.ATMCardRequest;
-import com.zinkworks.externaldto.ATMCardResponse;
 import com.zinkworks.externaldto.ATMServiceBalanceRequest;
 import com.zinkworks.externaldto.ATMServiceBalanceResponse;
 import com.zinkworks.externaldto.AccountCheckBalanceRequest;
@@ -102,9 +101,10 @@ public class ATMProcessService {
 			}
 			else if (amount == 0) {
 				break;
-			} else {
-				throw new InsufficientDenominationException("Not sufficient funds to fulfill the request");
-			}
+			} 
+		}
+		if(amount > atmBalance) {
+			throw new InsufficientDenominationException("Not sufficient funds to fulfill the request");
 		}
 		count.setFiftys(fiftiesTobeUsed);
 		count.setTwentys(twentiesTobeUsed);
